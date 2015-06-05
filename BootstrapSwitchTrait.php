@@ -9,9 +9,9 @@ trait BootstrapSwitchTrait
 {
     public $type = BootstrapSwitchAsset::TYPE_CHECKBOX;
 
-    public $items = [];
-
     public $inlineLabel = true;
+
+    public $items = [];
 
     public $itemOptions = [];
 
@@ -23,8 +23,6 @@ trait BootstrapSwitchTrait
 
     public $pluginOptions;
 
-    public $clientEvents = [];
-
     public $checked = false;
 
     protected $selector;
@@ -32,16 +30,10 @@ trait BootstrapSwitchTrait
     public function registerClientScript()
     {
         $view = $this->view;
-        BootstrapSwitch::register($view);
+        BootstrapSwitchAsset::register($view);
         $this->pluginOptions['animate'] = ArrayHelper::getValue($this->pluginOptions, 'animate', true);
         $options = Json::encode($this->pluginOptions);
-        $js[] = ";jQuery('$this->selector').bootstrapSwitch($options);";
-        if (!empty($this->clientEvents)) {
-            foreach ($this->clientEvents as $event => $handler) {
-                $js[] = "jQuery('$this->selector').on('$event', $handler);";
-            }
-        }
-        $view->registerJs(implode("\n", $js));
+        $view->registerJs(";jQuery('$this->selector').bootstrapSwitch($options);");
     }
 }
 
