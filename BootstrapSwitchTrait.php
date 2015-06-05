@@ -9,10 +9,6 @@ trait BootstrapSwitchTrait
 {
     public $type = BootstrapSwitchAsset::TYPE_CHECKBOX;
 
-    public $model;
-
-    public $attribute;
-
     public $items = [];
 
     public $inlineLabel = true;
