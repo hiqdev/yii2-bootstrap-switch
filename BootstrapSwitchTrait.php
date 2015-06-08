@@ -2,6 +2,7 @@
 
 namespace hiqdev\bootstrap_switch;
 
+use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
@@ -31,7 +32,7 @@ trait BootstrapSwitchTrait
 
     public function registerClientScript()
     {
-        $view = $this->view;
+        $view = Yii::$app->view;
         BootstrapSwitchAsset::register($view);
         $this->pluginOptions['animate'] = ArrayHelper::getValue($this->pluginOptions, 'animate', true);
         $this->pluginOptions['size'] = ArrayHelper::getValue($this->pluginOptions, 'size', 'mini');
