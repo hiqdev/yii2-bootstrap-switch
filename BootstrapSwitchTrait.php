@@ -25,6 +25,8 @@ trait BootstrapSwitchTrait
 
     public $checked = false;
 
+    public $inline = true;
+
     protected $selector;
 
     public function registerClientScript()
@@ -32,6 +34,7 @@ trait BootstrapSwitchTrait
         $view = $this->view;
         BootstrapSwitchAsset::register($view);
         $this->pluginOptions['animate'] = ArrayHelper::getValue($this->pluginOptions, 'animate', true);
+        $this->pluginOptions['size'] = ArrayHelper::getValue($this->pluginOptions, 'size', 'mini');
         $options = Json::encode($this->pluginOptions);
         $view->registerJs(";jQuery('$this->selector').bootstrapSwitch($options);");
     }

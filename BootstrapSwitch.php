@@ -1,4 +1,5 @@
 <?php
+
 namespace hiqdev\bootstrap_switch;
 
 use yii\base\InvalidConfigException;
