@@ -25,21 +25,24 @@ class BootstrapSwitchColumn extends DataColumn
     public function getDataCellValue($model, $key, $index)
     {
         $itemName = 'bss_' . $this->attribute . '_' . $key;
+        $modelPkName = reset($model::primaryKey());
         if ($this->url) {
             Yii::$app->view->registerJs(<<<JS
             $('input[name="$itemName"]').on('switchChange.bootstrapSwitch', function(event, state) {
-                jQuery.ajaxSetup({
-                    type: 'POST'
-                });
-                jQuery.post('$this->url', {
-                    pk: '$key',
-                    name: '$this->attribute',
-                    value: state ? 1 : 0
+                var data = {};
+                data['{$model->formName()}'] = {};
+                data['{$model->formName()}']['$modelPkName'] = '$key';
+                data['{$model->formName()}']['{$this->attribute}'] = state ? 1 : 0;
+                jQuery.ajax({
+                    'type': 'POST',
+                    'url': '$this->url',
+                    'data': data
                 });
             });
 JS
             );
         }
+
         return BootstrapSwitch::widget([
             'name' => $itemName,
             'options' => $this->options,
