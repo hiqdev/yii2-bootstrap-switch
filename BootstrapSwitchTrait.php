@@ -12,6 +12,34 @@ trait BootstrapSwitchTrait
 
     public $inlineLabel = true;
 
+    /**
+     * @var array the radio button options to render. The syntax is:
+     * ```
+     *  'items' => [
+     *      [
+     *          'label' => 'Label of item',
+     *          'value' => 20,
+     *          'options' => [],
+     *          'labelOptions' => []
+     *      ]
+     * ]
+     * ```
+     * - label: string the label of item. If empty, will not be displayed.
+     * - value: string the value of the item.
+     * - options: HTML attributes of the item.
+     * - labelOptions: HTML attributes of the label.
+     *
+     * You can also specify items like this:
+     * ```
+     *  'items' => [
+     *      10 => 'Label of Item',
+     *      [
+     *          // ...
+     *      ]
+     *  ]
+     * ```
+     * On this case, the key of the array will be used as a value and the value of the array as a label.
+     */
     public $items = [];
 
     public $itemOptions = [];
