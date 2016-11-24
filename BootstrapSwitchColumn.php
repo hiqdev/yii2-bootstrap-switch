@@ -28,7 +28,9 @@ class BootstrapSwitchColumn extends DataColumn
         $modelPkName = reset($model::primaryKey());
         if ($this->url) {
             Yii::$app->view->registerJs(<<<JS
-            $('input[name="$itemName"]').on('switchChange.bootstrapSwitch', function(event, state) {
+            var input = $('input[name="$itemName"]');
+            input.on('switchChange.bootstrapSwitch', function(event, state) {
+                var elem = $(this);
                 var data = {};
                 data['{$model->formName()}'] = {};
                 data['{$model->formName()}']['$modelPkName'] = '$key';
@@ -37,6 +39,27 @@ class BootstrapSwitchColumn extends DataColumn
                     'type': 'POST',
                     'url': '$this->url',
                     'data': data
+                }).done(function(resp) {
+                    var options = {
+                        text: resp.text,
+                        buttons: {
+                            sticker: false
+                        },
+                        styling: 'bootstrap3'
+                    };
+                    if (resp.success === false) {
+                        options.type = 'error';
+                        options.icon = 'fa fa-fw fa-exclamation-triangle';
+                        elem.bootstrapSwitch('toggleReadonly');
+                    } else {
+                        options.type = 'success';
+                        options.icon = 'fa fa-fw fa-check-circle';
+                    }
+                    if (typeof PNotify != "undefined") {
+                        new PNotify(options);
+                    } else {
+                        alert(resp.text);
+                    }
                 });
             });
 JS
