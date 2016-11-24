@@ -3,10 +3,8 @@
 namespace hiqdev\bootstrap_switch;
 
 use Yii;
-//use yii\grid\DataColumn;
 use hipanel\grid\DataColumn;
 use yii\helpers\ArrayHelper;
-use yii\web\JsExpression;
 
 class BootstrapSwitchColumn extends DataColumn
 {
