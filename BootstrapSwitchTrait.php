@@ -3,7 +3,6 @@
 namespace hiqdev\bootstrap_switch;
 
 use hiqdev\higrid\FeaturedColumnTrait;
-use hiqdev\higrid\GridView;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -17,11 +16,6 @@ trait BootstrapSwitchTrait
     use FeaturedColumnTrait {
         registerClientScript as traitRegisterClientScript;
     }
-
-    /**
-     * @var GridView
-     */
-    public $grid;
 
     /**
      * @var array the radio button options to render. The syntax is:
@@ -76,7 +70,9 @@ trait BootstrapSwitchTrait
         $this->pluginOptions['animate'] = ArrayHelper::getValue($this->pluginOptions, 'animate', true);
         $this->pluginOptions['size'] = ArrayHelper::getValue($this->pluginOptions, 'size', 'mini');
         $options = Json::encode($this->pluginOptions);
-        $view->registerJs(";jQuery('$this->selector').bootstrapSwitch($options);");
+        if ($this->selector) {
+            $view->registerJs(";$('{$this->selector}').bootstrapSwitch({$options});");
+        }
         $this->traitRegisterClientScript();
     }
 }
