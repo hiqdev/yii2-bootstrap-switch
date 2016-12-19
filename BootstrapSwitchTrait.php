@@ -55,7 +55,7 @@ trait BootstrapSwitchTrait
 
     public $containerOptions = ['class'=>'form-group'];
 
-    public $pluginOptions;
+    public $pluginOptions = [];
 
     public $checked = false;
 
