@@ -44,9 +44,7 @@
     }
   ],
   "require": {
-    "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
-    "hiqdev/yii2-hiart": "*",
     "bower-asset/bootstrap-switch": "~3.3.2"
   },
   "autoload": {
