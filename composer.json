@@ -1,67 +1,65 @@
 {
-  "name": "hiqdev/yii2-bootstrap-switch",
-  "type": "yii2-extension",
-  "description": "Yii2 wrap for bootstrap switch js lib http://www.bootstrap-switch.org/",
-  "keywords": [
-    "bootstrap switch",
-    "widget",
-    "extension",
-    "yii2"
-  ],
-  "homepage": "https://hiqdev.com/yii2-bootstrap-switch",
-  "license": "BSD-3-Clause",
-  "support": {
-    "email": "support@hiqdev.com",
-    "source": "https://github.com/hiqdev/yii2-bootstrap-switch",
-    "issues": "https://github.com/hiqdev/yii2-bootstrap-switch/issues",
-    "wiki": "https://github.com/hiqdev/yii2-bootstrap-switch/wiki",
-    "forum": "http://forum.hiqdev.com/yii2"
-  },
-  "authors": [
-    {
-      "name": "Andrii Vasyliev",
-      "role": "Project lead",
-      "email": "sol@hiqdev.com",
-      "homepage": "https://hipanel.com/"
+    "name": "hiqdev/yii2-bootstrap-switch",
+    "type": "yii2-extension",
+    "description": "Yii2 Bootstrap Switch",
+    "keywords": [
+        "bootstrap switch",
+        "widget",
+        "extension",
+        "yii2"
+    ],
+    "homepage": "https://github.com/hiqdev/yii2-bootstrap-switch",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email": "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/yii2-bootstrap-switch",
+        "issues": "https://github.com/hiqdev/yii2-bootstrap-switch/issues",
+        "wiki": "https://github.com/hiqdev/yii2-bootstrap-switch/wiki",
+        "forum": "http://forum.hiqdev.com/yii2"
     },
-    {
-      "name": "Dmitry Naumenko",
-      "role": "Lead backend developer",
-      "email": "silverfire@hiqdev.com",
-      "homepage": "http://silverfire.me/"
+    "authors": [
+        {
+            "name": "Andrii Vasyliev",
+            "role": "Project lead",
+            "email": "sol@hiqdev.com",
+            "homepage": "http://hipanel.com/"
+        },
+        {
+            "name": "Dmitry Naumenko",
+            "role": "Lead backend developer",
+            "email": "silverfire@hiqdev.com",
+            "homepage": "http://silverfire.me/"
+        },
+        {
+            "name": "Andrey Klochok",
+            "role": "Lead frontend developer",
+            "email": "tafid@hiqdev.com",
+            "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Yuriy Myronchuk",
+            "role": "QA Lead",
+            "email": "bladeroot@hiqdev.com",
+            "homepage": "http://hiqdev.com/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "bower-asset/bootstrap-switch": "~3.3.2"
     },
-    {
-      "name": "Andrey Klochok",
-      "role": "Developer",
-      "email": "tafid@hiqdev.com",
-      "homepage": "https://hiqdev.com/"
+    "require-dev": {
+        "hiqdev/hidev-php": "<2.0 || dev-master",
+        "hiqdev/hidev-hiqdev": "<2.0 || dev-master"
     },
-    {
-      "name": "Yuriy Myronchuk",
-      "role": "QA Lead",
-      "email": "bladeroot@hiqdev.com",
-      "homepage": "https://hiqdev.com/"
-    }
-  ],
-  "require": {
-    "yiisoft/yii2-bootstrap": "~2.0.0",
-    "bower-asset/bootstrap-switch": "~3.3.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "hiqdev\\bootstrap_switch\\": ""
-    }
-  },
-  "extra": {
-    "asset-installer-paths": {
-      "npm-asset-library": "vendor/npm",
-      "bower-asset-library": "vendor/bower"
-    }
-  },
-  "repositories": [
-    {
-        "type": "composer",
-        "url": "https://asset-packagist.org"
-    }
-  ]
+    "autoload": {
+        "psr-4": {
+            "hiqdev\\bootstrap_switch\\": "src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

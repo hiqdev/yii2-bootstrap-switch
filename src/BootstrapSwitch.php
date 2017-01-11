@@ -1,4 +1,12 @@
 <?php
+/**
+ * Yii2 Bootstrap Switch
+ *
+ * @link      https://github.com/hiqdev/yii2-bootstrap-switch
+ * @package   yii2-bootstrap-switch
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\bootstrap_switch;
 
@@ -14,7 +22,7 @@ class BootstrapSwitch extends InputWidget
     public function init()
     {
         parent::init();
-        if ($this->type == BootstrapSwitchAsset::TYPE_RADIO) {
+        if ($this->type === BootstrapSwitchAsset::TYPE_RADIO) {
             if (empty($this->items) || !is_array($this->items)) {
                 throw new InvalidConfigException('"$items" cannot be empty and must be of type array');
             }
@@ -61,7 +69,7 @@ class BootstrapSwitch extends InputWidget
                 : Html::radio($this->name, $this->checked, $options);
         }
         $this->containerOptions['class'] = ArrayHelper::getValue($this->containerOptions, 'class', 'form-group');
-        print Html::tag('div', implode($this->separator, $items), $this->containerOptions);
+        echo Html::tag('div', implode($this->separator, $items), $this->containerOptions);
     }
 
     private function renderCheckboxInput()
@@ -71,6 +79,6 @@ class BootstrapSwitch extends InputWidget
         } else {
             $input = Html::checkbox($this->name, $this->checked, $this->options);
         }
-        print $this->inlineLabel ? $input : Html::tag('div', $input);
+        echo $this->inlineLabel ? $input : Html::tag('div', $input);
     }
 }

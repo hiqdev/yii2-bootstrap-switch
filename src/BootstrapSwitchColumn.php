@@ -1,9 +1,17 @@
 <?php
+/**
+ * Yii2 Bootstrap Switch
+ *
+ * @link      https://github.com/hiqdev/yii2-bootstrap-switch
+ * @package   yii2-bootstrap-switch
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\bootstrap_switch;
 
-use Yii;
 use hipanel\grid\DataColumn;
+use Yii;
 use yii\helpers\ArrayHelper;
 
 class BootstrapSwitchColumn extends DataColumn
@@ -67,7 +75,7 @@ JS
         return BootstrapSwitch::widget([
             'name' => $itemName,
             'options' => $this->options,
-            'pluginOptions' => ArrayHelper::merge(['state' => (boolean)parent::getDataCellValue($model, $key, $index)], $this->pluginOptions),
+            'pluginOptions' => ArrayHelper::merge(['state' => (bool) parent::getDataCellValue($model, $key, $index)], $this->pluginOptions),
         ]);
     }
 }
