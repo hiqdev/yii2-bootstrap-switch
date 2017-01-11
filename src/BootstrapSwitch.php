@@ -10,6 +10,7 @@
 
 namespace hiqdev\bootstrap_switch;
 
+use hiqdev\bootstrap_switch\traits\BootstrapSwitchTrait;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -17,12 +18,15 @@ use yii\widgets\InputWidget;
 
 class BootstrapSwitch extends InputWidget
 {
+    const TYPE_CHECKBOX = 1;
+    const TYPE_RADIO = 2;
+
     use BootstrapSwitchTrait;
 
     public function init()
     {
         parent::init();
-        if ($this->type === BootstrapSwitchAsset::TYPE_RADIO) {
+        if ($this->type === self::TYPE_RADIO) {
             if (empty($this->items) || !is_array($this->items)) {
                 throw new InvalidConfigException('"$items" cannot be empty and must be of type array');
             }
@@ -36,10 +40,10 @@ class BootstrapSwitch extends InputWidget
     public function run()
     {
         switch ($this->type) {
-            case BootstrapSwitchAsset::TYPE_CHECKBOX:
+            case self::TYPE_CHECKBOX:
                 $this->renderCheckboxInput();
                 break;
-            case BootstrapSwitchAsset::TYPE_RADIO:
+            case self::TYPE_RADIO:
                 $this->renderRadioInput();
                 break;
         }

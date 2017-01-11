@@ -8,8 +8,10 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hiqdev\bootstrap_switch;
+namespace hiqdev\bootstrap_switch\traits;
 
+use hiqdev\bootstrap_switch\assets\BootstrapSwitchAsset;
+use hiqdev\bootstrap_switch\BootstrapSwitch;
 use hiqdev\higrid\FeaturedColumnTrait;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -17,7 +19,7 @@ use yii\helpers\Json;
 
 trait BootstrapSwitchTrait
 {
-    public $type = BootstrapSwitchAsset::TYPE_CHECKBOX;
+    public $type = BootstrapSwitch::TYPE_CHECKBOX;
 
     public $inlineLabel = true;
 
@@ -61,7 +63,7 @@ trait BootstrapSwitchTrait
 
     public $separator = ' &nbsp;';
 
-    public $containerOptions = ['class'=>'form-group'];
+    public $containerOptions = ['class' => 'form-group'];
 
     public $pluginOptions = [];
 

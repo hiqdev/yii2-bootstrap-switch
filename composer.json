@@ -45,7 +45,8 @@
     ],
     "require": {
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "bower-asset/bootstrap-switch": "~3.3.2"
+        "bower-asset/bootstrap-switch": "~3.3.2",
+        "hiqdev/hipanel-core": "<2.0 || dev-master"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",

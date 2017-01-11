@@ -10,8 +10,11 @@
 
 namespace hiqdev\bootstrap_switch;
 
+use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitter;
+use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitterAsset;
+use hiqdev\bootstrap_switch\traits\BootstrapSwitchTrait;
 use hipanel\grid\DataColumn;
-use Yii;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 class BootstrapSwitchColumn extends DataColumn
@@ -28,54 +31,37 @@ class BootstrapSwitchColumn extends DataColumn
 
     public $format = 'raw';
 
+    /**
+     * @param ActiveRecord $model
+     * @param mixed $key
+     * @param int $index
+     * @return string
+     */
     public function getDataCellValue($model, $key, $index)
     {
-        $itemName = 'bss_' . $this->attribute . '_' . $key;
-        $modelPkName = reset($model::primaryKey());
+        AjaxSwitchSubmitterAsset::register($this->grid->view);
+
+        $options = [];
+        $primaryKey = reset($model->primaryKey());
+
         if ($this->url) {
-            Yii::$app->view->registerJs(<<<JS
-            var input = $('input[name="$itemName"]');
-            input.on('switchChange.bootstrapSwitch', function(event, state) {
-                var elem = $(this);
-                var data = {};
-                data['{$model->formName()}'] = {};
-                data['{$model->formName()}']['$modelPkName'] = '$key';
-                data['{$model->formName()}']['{$this->attribute}'] = state ? 1 : 0;
-                jQuery.ajax({
-                    'type': 'POST',
-                    'url': '$this->url',
-                    'data': data
-                }).done(function(resp) {
-                    var options = {
-                        text: resp.text,
-                        buttons: {
-                            sticker: false
-                        },
-                        styling: 'bootstrap3'
-                    };
-                    if (resp.success === false) {
-                        options.type = 'error';
-                        options.icon = 'fa fa-fw fa-exclamation-triangle';
-                        elem.bootstrapSwitch('toggleReadonly');
-                    } else {
-                        options.type = 'success';
-                        options.icon = 'fa fa-fw fa-check-circle';
-                    }
-                    if (typeof PNotify != "undefined") {
-                        new PNotify(options);
-                    } else {
-                        alert(resp.text);
-                    }
-                });
-            });
-JS
-            );
+            $options['class'][] = 'bootstrap-switch-ajax';
+            $options['data'] = [
+                'form-name' => $model->formName(),
+                'primary-key' => $primaryKey,
+                'key' => $key,
+                'url' => $this->url,
+                'attribute' => $this->attribute
+            ];
         }
 
+
         return BootstrapSwitch::widget([
-            'name' => $itemName,
-            'options' => $this->options,
-            'pluginOptions' => ArrayHelper::merge(['state' => (bool) parent::getDataCellValue($model, $key, $index)], $this->pluginOptions),
+            'name' => 'bss_' . $this->attribute . '_' . $key,
+            'options' => ArrayHelper::merge($this->options, $options),
+            'pluginOptions' => ArrayHelper::merge([
+                'state' => (bool) parent::getDataCellValue($model, $key, $index)
+            ], $this->pluginOptions),
         ]);
     }
 }
