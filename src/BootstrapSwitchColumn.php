@@ -10,10 +10,9 @@
 
 namespace hiqdev\bootstrap_switch;
 
-use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitter;
+use hipanel\grid\DataColumn;
 use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitterAsset;
 use hiqdev\bootstrap_switch\traits\BootstrapSwitchTrait;
-use hipanel\grid\DataColumn;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
@@ -51,16 +50,15 @@ class BootstrapSwitchColumn extends DataColumn
                 'primary-key' => $primaryKey,
                 'key' => $key,
                 'url' => $this->url,
-                'attribute' => $this->attribute
+                'attribute' => $this->attribute,
             ];
         }
-
 
         return BootstrapSwitch::widget([
             'name' => 'bss_' . $this->attribute . '_' . $key,
             'options' => ArrayHelper::merge($this->options, $options),
             'pluginOptions' => ArrayHelper::merge([
-                'state' => (bool) parent::getDataCellValue($model, $key, $index)
+                'state' => (bool) parent::getDataCellValue($model, $key, $index),
             ], $this->pluginOptions),
         ]);
     }
