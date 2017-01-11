@@ -1,7 +1,9 @@
 ## hiqdev/yii2-bootstrap-switch
 
-## [Under development]
+## [0.1.0] - 2017-01-11
 
+- Refactored to prevent excess JS generation
+    - [2ddd1c4] 2017-01-11 csfixed [@SilverFire]
     - [db47be2] 2017-01-11 Refactored to prevent excess JS generation [@SilverFire]
     - [309538f] 2017-01-11 added changelog [@SilverFire]
 - Moved to `src/`, hideved
@@ -49,3 +51,5 @@
 [Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/releases
 [db47be2]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/db47be2
 [309538f]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/309538f
+[2ddd1c4]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/2ddd1c4
+[0.1.0]: https://github.com/hiqdev/yii2-bootstrap-switch/releases/tag/0.1.0
