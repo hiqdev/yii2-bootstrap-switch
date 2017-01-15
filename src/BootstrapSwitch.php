@@ -12,16 +12,25 @@ namespace hiqdev\bootstrap_switch;
 
 use hiqdev\bootstrap_switch\traits\BootstrapSwitchTrait;
 use yii\base\InvalidConfigException;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
+/**
+ * Class BootstrapSwitch.
+ */
 class BootstrapSwitch extends InputWidget
 {
     const TYPE_CHECKBOX = 1;
     const TYPE_RADIO = 2;
 
     use BootstrapSwitchTrait;
+
+    /**
+     * @var ActiveRecord
+     */
+    public $model;
 
     public function init()
     {
@@ -39,19 +48,19 @@ class BootstrapSwitch extends InputWidget
 
     public function run()
     {
+        $this->registerClientScript();
+
         switch ($this->type) {
             case self::TYPE_CHECKBOX:
-                $this->renderCheckboxInput();
-                break;
+                return $this->renderCheckboxInput();
             case self::TYPE_RADIO:
-                $this->renderRadioInput();
-                break;
+                return $this->renderRadioInput();
+            default:
+                throw new InvalidConfigException('Wrong input type');
         }
-
-        $this->registerClientScript();
     }
 
-    private function renderRadioInput()
+    protected function renderRadioInput()
     {
         $items = [];
         foreach ($this->items as $key => $item) {
@@ -73,16 +82,18 @@ class BootstrapSwitch extends InputWidget
                 : Html::radio($this->name, $this->checked, $options);
         }
         $this->containerOptions['class'] = ArrayHelper::getValue($this->containerOptions, 'class', 'form-group');
-        echo Html::tag('div', implode($this->separator, $items), $this->containerOptions);
+
+        return Html::tag('div', implode($this->separator, $items), $this->containerOptions);
     }
 
-    private function renderCheckboxInput()
+    protected function renderCheckboxInput()
     {
         if ($this->hasModel()) {
             $input = Html::activeCheckbox($this->model, $this->attribute, $this->options);
         } else {
             $input = Html::checkbox($this->name, $this->checked, $this->options);
         }
-        echo $this->inlineLabel ? $input : Html::tag('div', $input);
+
+        return $this->inlineLabel ? $input : Html::tag('div', $input);
     }
 }
