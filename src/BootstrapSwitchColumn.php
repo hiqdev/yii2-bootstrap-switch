@@ -10,25 +10,33 @@
 
 namespace hiqdev\bootstrap_switch;
 
-use hipanel\grid\DataColumn;
-use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitterAsset;
-use hiqdev\bootstrap_switch\traits\BootstrapSwitchTrait;
+use hiqdev\higrid\DataColumn;
+use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 class BootstrapSwitchColumn extends DataColumn
 {
-    use BootstrapSwitchTrait;
-
+    /**
+     * @var string
+     */
     public $url;
 
-    public $ajaxSuccess;
-
-    public $ajaxFail;
-
-    public $ajaxAlways;
-
+    /**
+     * {@inheritdoc}
+     */
     public $format = 'raw';
+
+    /**
+     * @var array options that will be passed in the `pluginOptions`
+     * field of [[BootstrapSwitch]] configuration
+     */
+    public $pluginOptions = [];
+
+    /**
+     * @var array options that will be passed in the [[BootstrapSwitch]] configuration
+     */
+    public $switchOptions = [];
 
     /**
      * @param ActiveRecord $model
@@ -38,28 +46,35 @@ class BootstrapSwitchColumn extends DataColumn
      */
     public function getDataCellValue($model, $key, $index)
     {
-        AjaxSwitchSubmitterAsset::register($this->grid->view);
+        return Yii::createObject($this->getWidgetOptions($model, $key, $index))->run();
+    }
 
-        $options = [];
-        $primaryKey = reset($model->primaryKey());
-
-        if ($this->url) {
-            $options['class'][] = 'bootstrap-switch-ajax';
-            $options['data'] = [
-                'form-name' => $model->formName(),
-                'primary-key' => $primaryKey,
-                'key' => $key,
-                'url' => $this->url,
-                'attribute' => $this->attribute,
-            ];
-        }
-
-        return BootstrapSwitch::widget([
+    /**
+     * @param ActiveRecord $model
+     * @param mixed $key
+     * @param int $index
+     * @return array
+     */
+    protected function getWidgetOptions($model, $key, $index)
+    {
+        $options = [
+            'class' => BootstrapSwitch::class,
             'name' => 'bss_' . $this->attribute . '_' . $key,
-            'options' => ArrayHelper::merge($this->options, $options),
+            'model' => $model,
+            'attribute' => $this->attribute,
             'pluginOptions' => ArrayHelper::merge([
                 'state' => (bool) parent::getDataCellValue($model, $key, $index),
             ], $this->pluginOptions),
-        ]);
+            'options' => [
+                'label' => false,
+            ],
+        ];
+
+        if ($this->url) {
+            $options['class'] = AjaxBootstrapSwitch::class;
+            $options['url'] = $this->url;
+        }
+
+        return array_merge($options, $this->switchOptions);
     }
 }
