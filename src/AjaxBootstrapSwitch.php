@@ -13,8 +13,7 @@ namespace hiqdev\bootstrap_switch;
 use hiqdev\bootstrap_switch\assets\AjaxSwitchSubmitterAsset;
 
 /**
- * Class AjaxBootstrapSwitch
- * @package hiqdev\bootstrap_switch
+ * Class AjaxBootstrapSwitch.
  */
 class AjaxBootstrapSwitch extends BootstrapSwitch
 {

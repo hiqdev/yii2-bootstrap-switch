@@ -17,6 +17,9 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
+/**
+ * Class BootstrapSwitchTrait.
+ */
 trait BootstrapSwitchTrait
 {
     public $type = BootstrapSwitch::TYPE_CHECKBOX;
