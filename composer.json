@@ -27,26 +27,26 @@
         {
             "name": "Dmitry Naumenko",
             "role": "Lead backend developer",
-            "email": "silverfire@hiqdev.com",
+            "email": "d.naumenko.a@gmail.com",
             "homepage": "http://silverfire.me/"
         },
         {
             "name": "Andrey Klochok",
             "role": "Lead frontend developer",
-            "email": "tafid@hiqdev.com",
+            "email": "andreyklochok@gmail.com",
             "homepage": "http://hiqdev.com/"
         },
         {
             "name": "Yuriy Myronchuk",
             "role": "QA Lead",
-            "email": "bladeroot@hiqdev.com",
+            "email": "bladeroot@gmail.com",
             "homepage": "http://hiqdev.com/"
         }
     ],
     "require": {
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "bower-asset/bootstrap-switch": "~3.3.2",
-        "hiqdev/hipanel-core": "<2.0 || dev-master"
+        "bower-asset/bootstrap-switch": "dev-master",
+        "hiqdev/yii2-higrid": "<2.0 || dev-master"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",
@@ -57,6 +57,7 @@
             "hiqdev\\bootstrap_switch\\": "src"
         }
     },
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "composer",
