@@ -1,5 +1,11 @@
 ## hiqdev/yii2-bootstrap-switch
 
+## [Under development]
+
+- Changed `bower-asset/bootstrap-switch` requirement constraint to `dev-master` ([@SilverFire])
+- Added AjaxBootstrapSwitch, LabeledAjaxSwitch ([@SilverFire])
+- Refactored BootstrapSwitch and BootstrapSwitchColumn ([@SilverFire])
+
 ## [0.1.0] - 2017-01-11
 
 - Refactored to prevent excess JS generation ([@SilverFire])
@@ -17,5 +23,5 @@
 [andreyklochok@gmail.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@hiqdev.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/releases
+[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.0...HEAD
 [0.1.0]: https://github.com/hiqdev/yii2-bootstrap-switch/releases/tag/0.1.0

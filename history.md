@@ -1,5 +1,17 @@
 ## hiqdev/yii2-bootstrap-switch
 
+## [Under development]
+
+- Changed `bower-asset/bootstrap-switch` requirement constraint to `dev-master`
+    - [5db0661] 2017-01-18 Changed `bower-asset/bootstrap-switch` dependency to `dev-master` [@SilverFire]
+- Added AjaxBootstrapSwitch, LabeledAjaxSwitch
+    - [e9a2830] 2017-01-18 Added AjaxBootstrapSwitch, LabeledAjaxSwitch [@SilverFire]
+- Refactored BootstrapSwitch and BootstrapSwitchColumn
+    - [58e49f7] 2017-01-18 csfixed [@SilverFire]
+    - [18b95b6] 2017-01-27 Fixed BootstrapSwitchColumn to generate different ID for each widget by default [@SilverFire]
+    - [55ae933] 2017-01-17 Refactored BootstapSwitchColumn [@SilverFire]
+    - [8c9f2e9] 2017-01-15 Refactored BootstrapSwitch [@SilverFire]
+
 ## [0.1.0] - 2017-01-11
 
 - Refactored to prevent excess JS generation
@@ -48,8 +60,14 @@
 [cfb9efc]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/cfb9efc
 [eb6dc1f]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/eb6dc1f
 [37117bf]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/37117bf
-[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/releases
+[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.0...HEAD
 [db47be2]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/db47be2
 [309538f]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/309538f
 [2ddd1c4]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/2ddd1c4
 [0.1.0]: https://github.com/hiqdev/yii2-bootstrap-switch/releases/tag/0.1.0
+[18b95b6]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/18b95b6
+[58e49f7]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/58e49f7
+[5db0661]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/5db0661
+[e9a2830]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/e9a2830
+[55ae933]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/55ae933
+[8c9f2e9]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/8c9f2e9
