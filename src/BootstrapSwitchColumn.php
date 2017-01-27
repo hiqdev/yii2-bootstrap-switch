@@ -66,6 +66,7 @@ class BootstrapSwitchColumn extends DataColumn
                 'state' => (bool) parent::getDataCellValue($model, $key, $index),
             ], $this->pluginOptions),
             'options' => [
+                'id' => 'bss_' . $this->attribute . '_' . $key,
                 'label' => false,
             ],
         ];
