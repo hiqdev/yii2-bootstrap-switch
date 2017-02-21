@@ -1,6 +1,6 @@
 ## hiqdev/yii2-bootstrap-switch
 
-## [0.1.1] - 2017-01-27
+## [0.1.1] - 2017-02-21
 
 - Changed `bower-asset/bootstrap-switch` requirement constraint to `dev-master` ([@SilverFire])
 - Added AjaxBootstrapSwitch, LabeledAjaxSwitch ([@SilverFire])
