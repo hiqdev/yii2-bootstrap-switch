@@ -1,6 +1,6 @@
 ## hiqdev/yii2-bootstrap-switch
 
-## [Under development]
+## [0.1.1] - 2017-01-27
 
 - Changed `bower-asset/bootstrap-switch` requirement constraint to `dev-master`
     - [5db0661] 2017-01-18 Changed `bower-asset/bootstrap-switch` dependency to `dev-master` [@SilverFire]
@@ -11,6 +11,7 @@
     - [18b95b6] 2017-01-27 Fixed BootstrapSwitchColumn to generate different ID for each widget by default [@SilverFire]
     - [55ae933] 2017-01-17 Refactored BootstapSwitchColumn [@SilverFire]
     - [8c9f2e9] 2017-01-15 Refactored BootstrapSwitch [@SilverFire]
+    - [f311634] 2017-01-27 changelog updated [@SilverFire]
 
 ## [0.1.0] - 2017-01-11
 
@@ -71,3 +72,5 @@
 [e9a2830]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/e9a2830
 [55ae933]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/55ae933
 [8c9f2e9]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/8c9f2e9
+[f311634]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/f311634
+[0.1.1]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.0...0.1.1
