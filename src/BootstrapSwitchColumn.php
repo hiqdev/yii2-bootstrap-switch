@@ -28,7 +28,7 @@ class BootstrapSwitchColumn extends DataColumn
     public $format = 'raw';
 
     /**
-     * @var array options that will be passed in the `pluginOptions`
+     * @var array|callable|mixed options that will be passed in the `pluginOptions`
      * field of [[BootstrapSwitch]] configuration
      */
     public $pluginOptions = [];
@@ -87,15 +87,10 @@ class BootstrapSwitchColumn extends DataColumn
      */
     protected function getPluginOptions($model, $key, $index)
     {
-        $result = [];
-        foreach ($this->pluginOptions as $option => $value) {
-            if (is_callable($value)) {
-                $result[$option] = call_user_func($value, $model, $key, $index, $this);
-            } else {
-                $result[$option] = $value;
-            }
+        if ($this->pluginOptions instanceof \Closure) {
+            return (array)call_user_func($this->pluginOptions, $model, $key, $index, $this);
+        } else {
+            return (array)$this->pluginOptions;
         }
-
-        return $result;
     }
 }
