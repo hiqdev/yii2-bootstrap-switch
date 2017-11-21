@@ -10,10 +10,10 @@
 
 namespace hiqdev\bootstrap_switch;
 
-use hiqdev\higrid\DataColumn;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
+use hiqdev\higrid\DataColumn;
 
 class BootstrapSwitchColumn extends DataColumn
 {
@@ -63,8 +63,8 @@ class BootstrapSwitchColumn extends DataColumn
             'model' => $model,
             'attribute' => $this->attribute,
             'pluginOptions' => ArrayHelper::merge([
-                'state' => (bool) parent::getDataCellValue($model, $key, $index),
-            ], $this->pluginOptions),
+                'state' => (bool)parent::getDataCellValue($model, $key, $index),
+            ], $this->getPluginOptions($model, $key, $index)),
             'options' => [
                 'id' => 'bss_' . $this->attribute . '_' . $key,
                 'label' => false,
@@ -77,5 +77,25 @@ class BootstrapSwitchColumn extends DataColumn
         }
 
         return array_merge($options, $this->switchOptions);
+    }
+
+    /**
+     * @param $model
+     * @param $key
+     * @param $index
+     * @return array
+     */
+    protected function getPluginOptions($model, $key, $index)
+    {
+        $result = [];
+        foreach ($this->pluginOptions as $option => $value) {
+            if (is_callable($value)) {
+                $result[$option] = call_user_func($value, $model, $key, $index, $this);
+            } elseif (is_callable($value)) {
+                $result[$option] = $value;
+            }
+        }
+
+        return $result;
     }
 }
