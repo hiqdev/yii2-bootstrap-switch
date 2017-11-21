@@ -85,7 +85,7 @@ class BootstrapSwitchColumn extends DataColumn
      * @param $index
      * @return array
      */
-    protected function getPluginOptions($model, $key, $index)
+    protected function getPluginOptions($model, $key, $index): array
     {
         if ($this->pluginOptions instanceof \Closure) {
             return (array)call_user_func($this->pluginOptions, $model, $key, $index, $this);
