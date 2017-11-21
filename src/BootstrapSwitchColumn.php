@@ -91,7 +91,7 @@ class BootstrapSwitchColumn extends DataColumn
         foreach ($this->pluginOptions as $option => $value) {
             if (is_callable($value)) {
                 $result[$option] = call_user_func($value, $model, $key, $index, $this);
-            } elseif (is_callable($value)) {
+            } else {
                 $result[$option] = $value;
             }
         }
