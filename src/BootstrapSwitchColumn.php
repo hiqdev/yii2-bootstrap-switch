@@ -28,7 +28,7 @@ class BootstrapSwitchColumn extends DataColumn
     public $format = 'raw';
 
     /**
-     * @var array|callable|mixed options that will be passed in the `pluginOptions`
+     * @var array|\Closure options that will be passed in the `pluginOptions`
      * field of [[BootstrapSwitch]] configuration
      */
     public $pluginOptions = [];
@@ -85,12 +85,12 @@ class BootstrapSwitchColumn extends DataColumn
      * @param $index
      * @return array
      */
-    protected function getPluginOptions($model, $key, $index): array
+    protected function getPluginOptions($model, $key, $index)
     {
         if ($this->pluginOptions instanceof \Closure) {
             return (array)call_user_func($this->pluginOptions, $model, $key, $index, $this);
-        } else {
-            return (array)$this->pluginOptions;
         }
+
+        return (array)$this->pluginOptions;
     }
 }
