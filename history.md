@@ -1,5 +1,14 @@
 ## hiqdev/yii2-bootstrap-switch
 
+## [0.1.2] - 2017-11-22
+
+- `BootstrapSwitchColumn::pluginOptions` can now be callable [@tafid]
+    - [c1eb2b7] 2017-11-22 Update to newer hidev version [@SilverFire]
+    - [78867fb] 2017-11-22 Fixed phpdoc for `pluginOptions` attribute, removed extra `else` [@tafid]
+    - [be69446] 2017-11-21 Significant changes in BootstrapSwitchColumn::getPluginOptions() [@tafid]
+    - [5dce3d9] 2017-11-21 Fixed odd expression [@tafid]
+    - [d9afb16] 2017-11-21 All `pulginOptions` items can be callables [@tafid]
+
 ## [0.1.1] - 2017-02-21
 
 - Changed `bower-asset/bootstrap-switch` requirement constraint to `dev-master`
@@ -61,7 +70,7 @@
 [cfb9efc]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/cfb9efc
 [eb6dc1f]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/eb6dc1f
 [37117bf]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/37117bf
-[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.0...HEAD
+[Under development]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.1...HEAD
 [db47be2]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/db47be2
 [309538f]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/309538f
 [2ddd1c4]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/2ddd1c4
@@ -74,3 +83,9 @@
 [8c9f2e9]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/8c9f2e9
 [f311634]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/f311634
 [0.1.1]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.0...0.1.1
+[c1eb2b7]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/c1eb2b7
+[78867fb]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/78867fb
+[be69446]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/be69446
+[5dce3d9]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/5dce3d9
+[d9afb16]: https://github.com/hiqdev/yii2-bootstrap-switch/commit/d9afb16
+[0.1.2]: https://github.com/hiqdev/yii2-bootstrap-switch/compare/0.1.1...0.1.2
