@@ -1,8 +1,0 @@
-package:
-    type:           yii2-extension
-    name:           yii2-bootstrap-switch
-    title:          Yii2 Bootstrap Switch
-    keywords:       bootstrap switch, widget, extension, yii2
-    keywords:       hipanel, module, mailing
-    namespace:      hiqdev\bootstrap_switch
-    description:    This extension is a wrapping package for the [bootstrap-switch](https://github.com/nostalgiaz/bootstrap-switch) JS plugin.

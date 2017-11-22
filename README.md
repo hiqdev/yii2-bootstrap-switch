@@ -1,5 +1,4 @@
-Yii2 Bootstrap Switch
-=====================
+# Yii2 Bootstrap Switch
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/yii2-bootstrap-switch/v/stable)](https://packagist.org/packages/hiqdev/yii2-bootstrap-switch)
 [![Total Downloads](https://poser.pugx.org/hiqdev/yii2-bootstrap-switch/downloads)](https://packagist.org/packages/hiqdev/yii2-bootstrap-switch)
