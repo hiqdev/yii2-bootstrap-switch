@@ -24,11 +24,12 @@ class AjaxBootstrapSwitch extends BootstrapSwitch
 
     protected function renderCheckboxInput()
     {
+        $pk = $this->model->primaryKey();
         $this->options = array_merge([
             'data' => [
                 'bootstrap-switch-ajax' => true,
                 'form-name' => $this->model->formName(),
-                'primary-key' => reset($this->model->primaryKey()),
+                'primary-key' => reset($pk),
                 'key' => $this->model->getPrimaryKey(),
                 'url' => $this->url,
                 'attribute' => $this->attribute,
